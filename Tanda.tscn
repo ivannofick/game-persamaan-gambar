@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tanda.gd" type="Script" id=1]
+[ext_resource path="res://Aset/tanda.png" type="Texture" id=2]
+[ext_resource path="res://Aset/Berhasil.wav" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 26.2234
+
+[node name="Tanda" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="EfekSuara" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -1.445
+
+[connection signal="input_event" from="." to="." method="_on_Tanda_input_event"]
